@@ -4,10 +4,10 @@
       "/Users/rolenle/Projects/mcenroe/app/controllers/sessions_controller.rb": [
         1,
         1,
-        1,
-        1,
-        1,
-        1,
+        2,
+        2,
+        2,
+        2,
         null,
         null,
         1,
@@ -26,7 +26,7 @@
         1,
         null,
         1,
-        4,
+        8,
         null,
         null
       ],
@@ -48,12 +48,37 @@
         1,
         1,
         null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/rolenle/Projects/mcenroe/spec/features/any_user_can_see_a_specific_users_profile_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
         null
       ],
       "/Users/rolenle/Projects/mcenroe/spec/features/user_can_login_spec.rb": [
         1,
+        null,
         1,
         1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
         1,
         1,
         1,
@@ -127,17 +152,17 @@
       "/Users/rolenle/Projects/mcenroe/app/models/user.rb": [
         1,
         1,
-        4,
+        6,
         null,
         null,
-        4,
-        null,
-        null,
-        null,
+        6,
         null,
         null,
         null,
-        4,
+        null,
+        null,
+        null,
+        6,
         null,
         null
       ],
@@ -148,6 +173,6 @@
         null
       ]
     },
-    "timestamp": 1391274270
+    "timestamp": 1391275623
   }
 }
