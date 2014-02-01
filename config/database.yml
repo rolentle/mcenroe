@@ -21,3 +21,5 @@ production:
   adapter: postgresql
   encoding: unicode
   database: mcenroe_production
+  username: mcenroe
+  password:
