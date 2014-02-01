@@ -31,7 +31,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 group :test do
-gem 'sqlite3'
+  gem 'sqlite3'
+  gem 'pry'
+  gem 'database_cleaner'
 end
 
 group :production do
@@ -44,6 +46,7 @@ end
 
 group :development, :test do
     gem 'rspec-rails', '~> 3.0.0.beta'
+    gem 'better_errors'
 end
 
 group :doc do
