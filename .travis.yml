@@ -1,3 +1,6 @@
-nguage: ruby
+language: ruby
 rvm:
-    - 2.0.0
+  - 2.0.0
+env:
+  - TWITTER_CONSUMER_KEY= ENV["TWITTER_CONSUMER_KEY"]
+  - TWITTER_CONSUMER_SECRET= ENV["TWITTER_CONSUMER_SECRET"]
