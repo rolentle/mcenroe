@@ -1,7 +1,7 @@
 Mcenroe::Application.routes.draw do
   get "users/index"
   root "users#index"
-  get "/auth/:provider/callback" => "sessions#create"
+  match "/auth/:provider/callback" => "sessions#create", via: [:get, :post]
   get "/signout" => "sessions#destroy", :as => :signout
   get "/:name" => "users#show"
   # The priority is based upon order of creation: first created -> highest priority.
