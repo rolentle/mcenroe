@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :players
+  has_many :games, through: :players
   def self.from_omniauth(auth)
     user = User.find_or_create_by(
       uid:      auth["uid"]
