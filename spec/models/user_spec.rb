@@ -25,4 +25,15 @@ describe User do
     expect(new_user.access_token).not_to eq old_token
     expect(new_user.access_secret).not_to eq old_secret
   end
+
+  it "has many games" do
+    auth = OmniAuth.config.mock_auth[:twitter]
+    user = User.from_omniauth(auth)
+    game = Game.create
+
+    game.users << user
+
+    expect(game.users).to include user
+    expect(user.games).to include game
+  end
 end
