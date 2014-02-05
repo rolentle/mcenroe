@@ -36,4 +36,27 @@ describe User do
     expect(game.users).to include user
     expect(user.games).to include game
   end
+
+  it "has wins and losses" do
+    auth = OmniAuth.config.mock_auth[:twitter]
+    user = User.from_omniauth(auth)
+    game = Game.create
+
+    game.users << user
+    game.update_attributes(winner_id: user.id)
+    game.save
+
+    game2 = Game.create
+    game2.users << user
+
+    game3 = Game.create
+    game3.users << user
+
+    expect(user.games.count).to eq 3
+    expect(user.wins).to include game
+    expect(user.wins.count).to eq 1
+    expect(user.losses).not_to include game
+    expect(user.losses.count).to eq 2
+  end
+
 end
