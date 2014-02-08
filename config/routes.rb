@@ -1,4 +1,11 @@
 Mcenroe::Application.routes.draw do
+  get "games/new", as: "new_game"
+  get "games/show"
+  get "games/index"
+  get "games/create"
+  get "games/destroy"
+  get "games/update"
+  get "games/edit"
   get "users/index"
   root "users#index"
   match "/auth/:provider/callback" => "sessions#create", via: [:get, :post]

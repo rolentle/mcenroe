@@ -10,9 +10,9 @@ require 'spec_helper'
    end
 
    it "and see my user name" do
+     auth = OmniAuth.config.mock_auth[:twitter]
      visit root_path
      click_on "Sign in with Twitter"
-     auth = OmniAuth.config.mock_auth[:twitter]
      expect(page).to have_content auth["info"]["nickname"]
    end
  end

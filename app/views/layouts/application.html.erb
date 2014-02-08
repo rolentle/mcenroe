@@ -10,6 +10,7 @@
 
 <% if current_user %>
   Welcome <%= current_user.name %>!
+  <%= link_to "Start a Game", new_game_path %>
   <%= link_to "Sign Out", signout_path %>
 <% else %>
   <%= link_to "Sign in with Twitter", "/auth/twitter" %>

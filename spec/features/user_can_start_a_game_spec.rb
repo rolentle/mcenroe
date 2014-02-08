@@ -3,6 +3,7 @@ require 'spec_helper'
 describe "user can start a game" do
   it "a user can start a game" do
     login
-    expect(1).to eq 1
+    click_on "Start a Game"
+    expect(page).to have_content "Invite an Opponent"
   end
 end
