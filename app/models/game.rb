@@ -5,8 +5,13 @@ class Game < ActiveRecord::Base
   validate :games_can_only_have_max_players
 
 
+  def winner=(user)
+    players.where(user_id: user.id).first.update_attributes(winner: true)
+    user
+  end
+
   def winner
-    User.find(winner_id)
+    players.where(winner: true).first.user
   end
 
   def loser

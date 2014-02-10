@@ -8,8 +8,7 @@ describe Game do
     game = Game.create
 
     game.users << user
-    game.update_attributes(winner_id: user.id)
-    game.save
+    game.winner = user
 
     expect(game.winner).to eq user
   end
@@ -18,7 +17,8 @@ describe Game do
     game = Game.create
     user2 = User.create
     game.users << user
-    game.update_attributes(winner_id: user2.id)
+    game.users << user2
+    game.winner = user2
 
     expect(game.loser).to eq user
     expect(game.winner).not_to eq user

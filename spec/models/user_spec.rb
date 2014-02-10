@@ -43,7 +43,7 @@ describe User do
     game = Game.create
 
     game.users << user
-    game.update_attributes(winner_id: user.id)
+    game.winner = user
     game.save
 
     game2 = Game.create
@@ -67,12 +67,25 @@ describe User do
     expect(client.user).to eq user
   end
 
-  it "can invite another user to  game" do
+  it "can invite another user to game" do
+    auth = OmniAuth.config.mock_auth[:twitter]
+    user = User.from_omniauth(auth)
+    user2 = User.create
+    game = Game.new
+    game.users << user
+    user.invite(game: game, user: user2)
+    user2.games include game
+  end
+
+  it "can invite a guest to game" do
     auth = OmniAuth.config.mock_auth[:twitter]
     user = User.from_omniauth(auth)
     game = Game.new
     game.users << user
-    user.invite(game: game, user: user2)
+    user.invite(game: game, user: 'test')
+    user2 = User.find_by(name: 'test')
+    expect(user2).not_to be_nil
+    user2.games include game
   end
 
 end

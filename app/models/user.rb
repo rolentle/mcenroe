@@ -17,14 +17,24 @@ class User < ActiveRecord::Base
   end
 
   def wins
-    games.where(winner_id: id)
+    players.where(winner: true).map(&:game)
   end
 
   def losses
-    games - wins
+    players.where(winner: false).map(&:game)
   end
 
   def messaging_client
     MessagingClient.new(self)
+  end
+
+  def invite(options ={})
+    game = options[:game]
+    if options[:user].class == String
+       user = User.find_or_create_by(name: options[:user])
+    else
+      user = options[:user]
+    end
+    game.users << user
   end
 end
