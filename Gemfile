@@ -30,6 +30,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 group :test do
+  gem "factory_girl_rails", "~> 4.0"
   gem 'sqlite3'
   gem 'pry'
   gem 'database_cleaner'

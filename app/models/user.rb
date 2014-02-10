@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
   def losses
     games - wins
   end
+
+  def messaging_client
+    MessagingClient.new(self)
+  end
 end

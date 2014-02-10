@@ -59,4 +59,20 @@ describe User do
     expect(user.losses.count).to eq 2
   end
 
+  it "can interface with external clients" do
+    auth = OmniAuth.config.mock_auth[:twitter]
+    user = User.from_omniauth(auth)
+    client = user.messaging_client
+    expect(client.class).to eq MessagingClient
+    expect(client.user).to eq user
+  end
+
+  it "can invite another user to  game" do
+    auth = OmniAuth.config.mock_auth[:twitter]
+    user = User.from_omniauth(auth)
+    game = Game.new
+    game.users << user
+    user.invite(game: game, user: user2)
+  end
+
 end
