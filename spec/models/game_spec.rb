@@ -23,4 +23,16 @@ describe Game do
     expect(game.loser).to eq user
     expect(game.winner).not_to eq user
   end
+
+  it "can only have two players" do
+    game = Game.create
+    user2 = User.create
+    user3 = User.create
+    game.users << user
+    game.users << user2
+    game.should be_valid
+
+    game.users << user3
+    game.should_not be_valid
+  end
 end

@@ -6,4 +6,5 @@ describe "user can start a game" do
     click_on "Start a Game"
     expect(page).to have_content "Invite an Opponent"
   end
+
 end
